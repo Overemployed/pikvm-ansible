@@ -2,6 +2,8 @@
 
 Edit `home` with your pikvm IP addresses and what the static IP's should be.
 
+Edit `packages.yml` to use your `remote_jack_trip_server`
+
 Setup your PiVKM with Jack and JackTrip 
 
 ```shell
