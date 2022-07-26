@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: no
+  pre_tasks:
+    - name: Read & Write
+      raw: rw
+  post_tasks:
+    - name: Read Only
+      raw: ro
+  roles:
+    - role: common
+
+  vars:
+    locale: en_US.UTF-8
+    timezone: America/New_York
+    buffer_size: "1024"
+    remote_jack_server: "nat.lan"

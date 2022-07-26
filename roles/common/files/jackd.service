@@ -1,0 +1,17 @@
+[Unit]
+Description=jackd
+After=sound.target
+
+[Service]
+User=jacktrip
+Type=simple
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+LimitRTTIME=infinity
+EnvironmentFile=/etc/systemd/system/jack.conf
+ExecStart=/usr/bin/jackd $JACK_OPTS
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+kvmd:
+    hid:
+        mouse_alt:
+            device: /dev/kvmd-hid-mouse-alt
+otg:
+    manufacturer: Corsair
+    product: Corsair Gaming RGBsV2
+    vendor_id: 0x1B1C
+    product_id: 0x1B2E
+    serial: 1600B014AF6EA5245ED9B2D2F500199

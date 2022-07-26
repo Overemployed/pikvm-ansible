@@ -1,0 +1,4 @@
+- name: install overrides 
+  copy:
+    src: override.yaml
+    dest: /etc/kvmd/override.yaml

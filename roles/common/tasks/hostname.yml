@@ -1,0 +1,21 @@
+- name: Configure hostname '{{ hostname | lower }}' 
+  hostname:
+    name: "{{ hostname | lower }}"
+  when: hostname is defined
+
+- name: Update hosts
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^127\.0\.1\.1'
+    line: '127.0.1.1 {{ hostname | lower }}'
+  when: hostname is defined
+
+- name: install wired.network 
+  template:
+    src: wired.network.j2
+    dest: /etc/systemd/network/20-wired.network
+
+- name: restart network service 
+  systemd:
+    name: systemd-networkd.service
+    state: restarted

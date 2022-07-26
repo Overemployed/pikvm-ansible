@@ -1,0 +1,10 @@
+- hosts: all
+  pre_tasks:
+    - name: Read & Write
+      raw: rw
+  post_tasks:
+    - name: Read Only
+      raw: ro
+  gather_facts: no
+  roles:
+    - role: restart_jack

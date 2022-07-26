@@ -1,0 +1,44 @@
+- name: add jacktrip user
+  user:
+    name: jacktrip
+    group: audio
+    system: yes
+    create_home: no
+
+- name: install jackd service
+  copy:
+    src: jackd.service
+    dest: /etc/systemd/system/jackd.service
+
+- name: install jacktrip service
+  copy:
+    src: jacktrip.service
+    dest: /etc/systemd/system/jacktrip.service
+
+- name: install jack.conf
+  template:
+    src: jack.conf
+    dest: /etc/systemd/system/jack.conf
+
+- name: enable jackd service
+  systemd:
+    name: jackd.service
+    enabled: yes
+    daemon_reload: yes
+
+- name: enable jacktrip service
+  systemd:
+    name: jacktrip.service
+    daemon_reload: yes
+    enabled: yes
+
+- name: enable jackd service started
+  systemd:
+    name: jackd.service
+    state: restarted
+
+- name: enable jacktrip service started
+  systemd:
+    name: jacktrip.service
+    state: restarted
+

@@ -1,0 +1,18 @@
+
+- name: get local ssh key
+  local_action: shell cat ~/.ssh/pikvm.pub
+  become: false
+  register: ssh_keys
+
+- name: check keys
+  debug: msg="{{ ssh_keys.stdout }}"
+
+- name: deploy ssh key 
+  authorized_key: user=root key="{{ ssh_keys.stdout }}"
+
+- import_tasks: install.yml
+- import_tasks: hostname.yml
+- import_tasks: locale.yml
+- import_tasks: timezone.yml
+- import_tasks: jack.yml
+- import_tasks: kvmd.yml

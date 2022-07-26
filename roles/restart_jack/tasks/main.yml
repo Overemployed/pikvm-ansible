@@ -1,0 +1,13 @@
+- name: enable jackd service started
+  systemd:
+    name: jackd.service
+    enabled: yes
+
+- name: enable jacktrip service started
+  systemd:
+    name: jacktrip.service
+    enabled: yes
+- name: restart
+  reboot:
+    reboot_timeout: 3600
+

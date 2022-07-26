@@ -1,0 +1,6 @@
+default_packages:
+  - jack2
+  - jacktrip
+  - njconnect
+  - jack-example-tools
+  - alsa-utils
